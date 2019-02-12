@@ -1,0 +1,22 @@
+{
+  "fitbit": {
+    "appUUID": "5e780711-91cb-464f-8bda-32a0d620be1f",
+    "appType": "app",
+    "appDisplayName": "ForgotPhone",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#607d8b",
+    "requestedPermissions": [],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "ForgotPhone"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}

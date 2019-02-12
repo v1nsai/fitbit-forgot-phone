@@ -1,0 +1,30 @@
+<svg id="my-popup" display="none">
+
+  <!-- Black background -->
+  <rect class="full-size" fill="fb-black" />
+
+  <!-- Title and text -->
+  <use href="#mixed-text-center-mid" class="dialog-mixed-text" fill="fb-white">
+    <set href="#top-padding" attributeName="display" to="none" />
+    <set href="#header/text" attributeName="text-buffer" to="Phone Disconnected" />
+    <set href="#header/text" attributeName="fill" to="fb-magenta"/>
+    <set href="#copy/text" attributeName="text-buffer" to="Did you mean to forget your phone?" />
+    <set href="#bottom-padding" attributeName="display" to="none" />
+  </use>
+  
+  <use href="#square-button-neutral" y="$">
+    <set href="#text" attributeName="text-buffer" to="Acknowledge" />
+  </use>
+
+  <!-- Left button
+  <use id="btnLeft" class="dialog-half-button-left" href="#square-button-neutral">
+    <set href="#text" attributeName="text-buffer" to="Later" />
+    <set href="#text" attributeName="text-anchor" to="middle" />
+  </use>
+
+  <!-- Right button
+  <use id="btnRight" class="dialog-half-button-right" href="#square-button-negative">
+    <set href="#text" attributeName="text-buffer" to="Start" />
+    <set href="#text" attributeName="text-anchor" to="middle" />
+  </use>
+</svg>
