@@ -1,4 +1,4 @@
-<svg id="my-popup" display="none">
+<svg id="forgot-notification-window" display="none">
 
   <!-- Black background -->
   <rect class="full-size" fill="fb-black" />
@@ -13,7 +13,7 @@
   </use>
   
   <!-- Acknowledge button -->
-  <use href="#square-button-neutral" y="$">
+  <use id="acknowledge" href="#square-button-neutral" y="$">
     <set href="#text" attributeName="text-buffer" to="Acknowledge" />
   </use>
 </svg>
