@@ -13,36 +13,31 @@ messaging.peerSocket.onmessage = (evt) => {
   console.log(JSON.stringify(evt.data));
 }
 
-// Handle when the socket is lost
+// When the socket is lost, wait 10 seconds, check if socket is still lost, then raise the alert
 messaging.peerSocket.onclose = function() {
   console.log("Connection lost")
-  setTimeout(notifyPhoneForgotten, 1000)
+  setTimeout(notifyPhoneForgotten, 10000)
 }
 
-// Create the warning notification and display it
-function raisePhoneForgottenNotification() {
-  let myPopup = document.getElementById("my-popup");
-
-  // Show the popup
-  myPopup.style.display = "inline";
-
-  let btnLeft = myPopup.getElementById("btnLeft");
-  let btnRight = myPopup.getElementById("btnRight");
-
-  btnLeft.onclick = function(evt) {
-    console.log("LATER");
-    myPopup.style.display = "none";
-  }
-
-  btnRight.onclick = function(evt) {
-    console.log("START");
-    myPopup.style.display = "none";
-  }
-}
-
-// Raise the notification if the socket is closed
+// Raise the notification if the socket is still closed
 function notifyPhoneForgotten() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.CLOSED) {
-    raisePhoneForgottenNotification();
+    console.log("notifyPhoneForgotten")
+    let notifyPopup = document.getElementById("forgot-notification-window");
+
+    // Show the popup
+    notifyPopup.style.display = "inline";
+    
+    // Vibrate the watch
+    vibration.start("ring");
+
+    // Create the acknowledge button and handle what happens when the button is clicked
+    let acknowledge = notifyPopup.getElementById("acknowledge");
+
+    acknowledge.onclick = function(evt) {
+      console.log("Acknowledge clicked");
+      vibration.stop();
+      notifyPopup.style.display = "none";
+    }
   }
 }
