@@ -13,12 +13,6 @@ messaging.peerSocket.onmessage = (evt) => {
   console.log(JSON.stringify(evt.data));
 }
 
-// When the socket is lost, wait 10 seconds, check if socket is still lost, then raise the alert
-messaging.peerSocket.onclose = function() {
-  console.log("Connection lost")
-  setTimeout(notifyPhoneForgotten, 10000)
-}
-
 // Raise the notification if the socket is still closed
 function notifyPhoneForgotten() {
   if (messaging.peerSocket.readyState === messaging.peerSocket.CLOSED) {
@@ -40,4 +34,10 @@ function notifyPhoneForgotten() {
       notifyPopup.style.display = "none";
     }
   }
+}
+
+// When the socket is lost, wait 10 seconds, check if socket is still lost, then raise the alert
+messaging.peerSocket.onclose = function() {
+  console.log("Connection lost")
+  setTimeout(notifyPhoneForgotten, 10000)
 }
